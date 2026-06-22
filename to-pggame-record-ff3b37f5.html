@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>PG游戏 · 探索主题与休闲之趣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f7f3eb;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #2e2b26;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .hero {
+            margin-bottom: 3rem;
+            text-align: center;
+            padding: 3rem 0 1.8rem 0;
+            border-bottom: 2px solid #ddd6cb;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #3d352c;
+            margin-bottom: 0.75rem;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6b5f52;
+            font-style: italic;
+            border-left: 3px solid #b5a392;
+            padding-left: 1.2rem;
+            display: inline-block;
+            text-align: left;
+            margin-top: 0.5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 2.5rem 0 1.2rem 0;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #d9cfc2;
+            color: #3f372e;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 2.5rem 0;
+        }
+        .card {
+            background: #ffffffef;
+            border-radius: 16px;
+            padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+            border: 1px solid #e6ddd3;
+        }
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(80, 60, 40, 0.06);
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #3b332b;
+            letter-spacing: 0.3px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #4c443b;
+        }
+        .card .tag {
+            display: inline-block;
+            background: #ede7df;
+            padding: 0.15rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #5f5549;
+            margin-top: 0.8rem;
+        }
+        .quote-block {
+            background: #ede6dc;
+            border-left: 5px solid #b8a692;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: normal;
+            color: #3a332c;
+        }
+        .quote-block p {
+            margin: 0.2rem 0;
+        }
+        .quote-block strong {
+            color: #5a4b3b;
+        }
+        .audience-list {
+            background: #faf6f0;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            margin: 1.8rem 0;
+            border: 1px solid #e2d7ca;
+        }
+        .audience-list li {
+            list-style: none;
+            margin-bottom: 0.7rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .audience-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #7f6f5d;
+        }
+        .natural-link {
+            font-size: 1rem;
+            margin: 1.6rem 0 0.6rem 0;
+            padding: 0.8rem 0;
+        }
+        .natural-link a {
+            color: #5f4f3b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c7b7a5;
+            font-weight: 400;
+        }
+        .natural-link a:hover {
+            text-decoration-color: #8a7761;
+            color: #3b2f25;
+        }
+        .faq-mini {
+            margin: 2.8rem 0 2rem 0;
+            background: #faf5ee;
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+        }
+        .faq-mini details {
+            margin: 0.8rem 0;
+            border-bottom: 1px solid #e3d9ce;
+            padding-bottom: 0.5rem;
+        }
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #3e352c;
+            padding: 0.3rem 0;
+        }
+        .faq-mini summary::marker {
+            color: #8c7b68;
+        }
+        .faq-mini p {
+            color: #4f453b;
+            margin-left: 0.5rem;
+        }
+        .footer-note {
+            text-align: center;
+            color: #8d7e6d;
+            font-size: 0.85rem;
+            border-top: 1px solid #d7cdbe;
+            padding-top: 1.8rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 520px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .quote-block {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>PG游戏</h1>
+        <div class="sub">从主题出发 · 一种温和的放松方式</div>
+    </div>
+
+    <p style="font-size:1.05rem; margin-bottom: 1.2rem;">
+        在数字生活的空隙里，我们常常寻找的不是刺激本身，而是一段可以沉浸、可以放空的轻时刻。<strong>PG游戏</strong>所涵盖的众多题材，从自然幻境到趣味挑战，恰好为这样的需求提供了安静而丰富的落脚点。
+    </p>
+
+    <!-- 主视觉卡片区（用途卡） -->
+    <h2 class="section-title">主题角落 · 用途随想</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>🎐 秘境漫游</h3>
+            <p>以神话、冒险与自然为线索，画面柔和、节奏舒缓。适合在短暂休息时，沉浸于主题构建的另一个世界。</p>
+            <span class="tag">视觉叙事</span>
+        </div>
+        <div class="card">
+            <h3>🧩 轻策略时刻</h3>
+            <p>不需要紧绷神经，结合简单的机制与反馈。适合放空大脑，又不想完全被动接收信息的间隙。</p>
+            <span class="tag">适度思考</span>
+        </div>
+        <div class="card">
+            <h3>🌿 日常调剂</h3>
+            <p>碎片时间里的微小仪式感：一局、一轮、一段旋律。PG游戏在这类场景中，常常成为一种熟悉的陪伴。</p>
+            <span class="tag">低门槛</span>
+        </div>
+    </div>
+
+    <!-- 引用块 / 提示框 -->
+    <div class="quote-block">
+        <p>💡 <strong>体验提醒</strong> · 游戏本身是休闲的载体，选择符合自己心境的主题往往比追逐结果更重要。让节奏慢下来，感受设计中的细节与氛围。</p>
+    </div>
+
+    <!-- 适合人群段落 -->
+    <h2 class="section-title">适合什么人</h2>
+    <div class="audience-list">
+        <li><strong>喜爱主题与氛围</strong> —— 对视觉风格、故事背景有偏好，不追求高强度竞争。</li>
+        <li><strong>寻找安静时刻</strong> —— 希望在一天中拥有一段不被打扰的自我时间。</li>
+        <li><strong>轻度探索者</strong> —— 愿意尝试不同玩法与题材，但不想投入过多学习成本。</li>
+        <li><strong>偶尔回归</strong> —— 可能有自己的偏好，偶尔想换一种风格或节奏。</li>
+    </div>
+
+    <!-- 自然链接段落（嵌入句子） -->
+    <div class="natural-link">
+        <p>如果你对这类主题化的休闲体验感兴趣，<a href="https://to-pggame.com">PG游戏</a>收录了许多风格各异的场景与设计，或许你会在其中找到与自己心境相契合的那一个角落。</p>
+        <p style="margin-top:0.6rem;">不需要刻意安排，只是偶然遇见，然后让几分钟的沉浸成为一天中轻盈的停顿。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h3 style="font-weight:400; margin-bottom:0.5rem; color:#3f372e;">常见疑问 · 简短摘要</h3>
+        <details>
+            <summary>PG游戏有哪些主题方向？</summary>
+            <p>涵盖自然、神话、冒险、经典元素、趣味挑战等，每个主题都围绕独特的视觉与叙事氛围展开。</p>
+        </details>
+        <details>
+            <summary>是否需要复杂操作或大量时间？</summary>
+            <p>多数设计偏向轻量与直觉式交互，单次投入时间灵活，适合碎片或整段空闲。</p>
+        </details>
+        <details>
+            <summary>如何找到适合自己喜好的内容？</summary>
+            <p>可以根据封面主题、关键词或推荐列表慢慢浏览，不必追求热门，跟随直觉选择就好。</p>
+        </details>
+    </div>
+
+    <!-- 结语 -->
+    <p style="margin-top: 2.2rem; font-size:0.98rem; color:#5b5045;">
+        游戏是生活的一种延伸，它不必宏大，也不必紧张。在那些被主题与想象包裹的片刻里，我们只是暂时离开一下，然后带着更好的心情回来。
+    </p>
+
+    <div class="footer-note">
+        <span>✦ 安静地探索  ·  温和地沉浸 ✦</span>
+    </div>
+
+</body>
+</html>
